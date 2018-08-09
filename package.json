@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build  --base-href /dakara/",
-    "deploy": "npm run build && git commit -am \"deploy $(date)\" && git subtree push --prefix dist/dakara origin gh-pages",
+    "package": "npm run build && git commit -am \"deploy $(date)\"",
+    "deploy": "npm run package && git push && git subtree push --prefix dist/dakara origin gh-pages",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
