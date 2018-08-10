@@ -1,9 +1,10 @@
 :host {
     flex: 0 0 auto;
-    height: 50px;
     padding: 1em;
 }
 
 .active-bullet-editor {
     width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 2em;
 }

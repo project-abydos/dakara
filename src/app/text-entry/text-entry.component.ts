@@ -15,6 +15,8 @@ export class TextEntryComponent implements OnInit {
   ngOnInit() {
   }
 
-  update(value: string) { this.bulletService.addBullet(this.activeBullet) }
+  update(value: string) {
+    this.bulletService.addBullet(this.activeBullet)
+  }
 
 }
