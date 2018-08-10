@@ -14,15 +14,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `npm build` to build the project for production. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project for production. The build artifacts will be stored in the `dist/` directory.
 
 ## Running tests
 
-Run `npm test` to execute the unit tests via [Cypress](https://www.cypress.io/).
+Run `npm run test` to execute the unit tests via [Cypress](https://www.cypress.io/).
 
 ## Deploy
 
-Run `npm deploy` to package the application for porduction and deploy to the `gh-pages` branch on GitHub (updating the production code)
+Run `npm run deploy` to package the application for porduction and deploy to the `gh-pages` branch on GitHub (updating the production code)
 
 ## Further help
 
