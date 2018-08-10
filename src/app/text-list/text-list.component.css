@@ -1,0 +1,14 @@
+:host {
+    flex: 1 1 auto;
+    overflow: scroll;
+    padding: 1em;
+}
+
+.bullet-entry {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 2em;
+}
+
+.bullet-entry:nth-child(even) {
+    background: #f7f7f7;
+}

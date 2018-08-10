@@ -1,0 +1,9 @@
+:host {
+    flex: 0 0 auto;
+    height: 50px;
+    padding: 1em;
+}
+
+.active-bullet-editor {
+    width: 100%;
+}

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BulletsService } from './bullets.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dakara';
+  title = 'Dakara';
+
+  clearBullets = () => this.bulletService.clearBullets();
+
+  constructor(private bulletService: BulletsService) {
+  }
 }
