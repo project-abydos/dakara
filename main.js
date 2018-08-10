@@ -41,7 +41,7 @@ module.exports = ".app-container {\n    height: 100%;\n    display: flex;\n    f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-container\">\n  <p> Useful for info for how to use this thing or something... <button (click)=\"clearBullets()\">Clear History</button></p>\n  <app-text-list></app-text-list>\n  <app-text-entry></app-text-entry>\n</div>\n"
+module.exports = "<div class=\"app-container container-fluid\">\n  <p>\n    Useful for info for how to use this thing or something...\n    <button (click)=\"clearBullets()\" class=\"btn btn-primary\">Clear History</button>\n  </p>\n  <app-text-list></app-text-list>\n  <app-text-entry></app-text-entry>\n</div>\n"
 
 /***/ }),
 
@@ -103,9 +103,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _text_entry_text_entry_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./text-entry/text-entry.component */ "./src/app/text-entry/text-entry.component.ts");
-/* harmony import */ var _text_list_text_list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./text-list/text-list.component */ "./src/app/text-list/text-list.component.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _text_entry_text_entry_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./text-entry/text-entry.component */ "./src/app/text-entry/text-entry.component.ts");
+/* harmony import */ var _text_list_text_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./text-list/text-list.component */ "./src/app/text-list/text-list.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -118,22 +119,24 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _text_entry_text_entry_component__WEBPACK_IMPORTED_MODULE_4__["TextEntryComponent"],
-                _text_list_text_list_component__WEBPACK_IMPORTED_MODULE_5__["TextListComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _text_entry_text_entry_component__WEBPACK_IMPORTED_MODULE_5__["TextEntryComponent"],
+                _text_list_text_list_component__WEBPACK_IMPORTED_MODULE_6__["TextListComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
+                _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_3__["NgbModule"].forRoot()
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -208,7 +211,7 @@ var BulletsService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host {\n    flex: 0 0 auto;\n    height: 50px;\n    padding: 1em;\n}\n\n.active-bullet-editor {\n    width: 100%;\n}"
+module.exports = ":host {\n    flex: 0 0 auto;\n    padding: 1em;\n}\n\n.active-bullet-editor {\n    width: 100%;\n    font-family: 'Times New Roman', Times, serif;\n    line-height: 2em;\n}"
 
 /***/ }),
 
@@ -219,7 +222,7 @@ module.exports = ":host {\n    flex: 0 0 auto;\n    height: 50px;\n    padding: 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<textarea class=\"active-bullet-editor\" (keyup.enter)=\"update()\" [(ngModel)]=\"activeBullet\"></textarea>"
+module.exports = "<input type=\"text\" class=\"form-control active-bullet-editor\" (keyup.enter)=\"update()\" [(ngModel)]=\"activeBullet\" autofocus />"
 
 /***/ }),
 
@@ -253,7 +256,9 @@ var TextEntryComponent = /** @class */ (function () {
     }
     TextEntryComponent.prototype.ngOnInit = function () {
     };
-    TextEntryComponent.prototype.update = function (value) { this.bulletService.addBullet(this.activeBullet); };
+    TextEntryComponent.prototype.update = function (value) {
+        this.bulletService.addBullet(this.activeBullet);
+    };
     TextEntryComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-text-entry',
@@ -395,7 +400,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/jeff/code/government/abydos/dakara/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /mnt/c/Users/Wayne Starr/Documents/Software Development/project-abydos/dakara/src/main.ts */"./src/main.ts");
 
 
 /***/ })
