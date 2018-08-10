@@ -19,4 +19,9 @@ describe('An Air Force user', () => {
         cy.get('.active-bullet-editor').type('{enter}');
         cy.get('app-text-list').should('contain', 'action stuff');
     });
+
+    it('When they click "Clear History", the bullet history should clear', () => {
+        cy.get('.clear-history').click({ force: true });
+        cy.get('app-text-list').should('not.contain', 'action stuff');
+    });
 });

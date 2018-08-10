@@ -1,5 +1,8 @@
 :host {
     flex: 0 0 auto;
+}
+
+.active-bullet-editor-container {
     padding: 1em;
 }
 

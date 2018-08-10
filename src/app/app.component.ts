@@ -8,9 +8,5 @@ import { BulletsService } from './bullets.service';
 })
 export class AppComponent {
   title = 'Dakara';
-
-  clearBullets = () => this.bulletService.clearBullets();
-
-  constructor(private bulletService: BulletsService) {
-  }
+  github_url = 'https://github.com/project-abydos/dakara';
 }

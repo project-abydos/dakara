@@ -1,8 +1,13 @@
-<div class="app-container container-fluid">
-  <p>
-    Useful for info for how to use this thing or something...
-    <button (click)="clearBullets()" class="btn btn-primary">Clear History</button>
-  </p>
+<div class="app-container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">{{ title }}</a>
+    <ul class="navbar-nav flex-row ml-auto d-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="{{github_url}}" title="GitHub Project"><fa-icon [icon]="['fab', 'github']"></fa-icon></a>
+      </li>
+    </ul>
+  </nav>
   <app-text-list></app-text-list>
+  <app-action-bar></app-action-bar>
   <app-text-entry></app-text-entry>
 </div>

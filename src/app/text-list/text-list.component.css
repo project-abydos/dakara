@@ -1,6 +1,6 @@
 :host {
     flex: 1 1 auto;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 1em;
 }
 
