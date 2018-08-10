@@ -1,5 +1,7 @@
 # Dakara
 
+An OPR/EPR wordsmithing tool designed to make it easier to manage versions of bullets, find better words for Action, Impact, and Result, and to more easily manage bullet length.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
 
 ## Development server
@@ -21,6 +23,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Deploy
+
+Run `ng deploy` to package the application for porduction and deploy to the `gh-pages` branch on GitHub (updating the production code)
 
 ## Further help
 
