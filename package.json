@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build  --base-href /dakara/",
+    "build": "ng build --prod --stats-json --extract-licenses --vendor-chunk --base-href /dakara/",
     "package": "npm run build && git commit -am \"deploy $(date)\"",
     "deploy": "npm run package && git push && git subtree push --prefix dist/dakara origin gh-pages",
     "test": "cypress run",
@@ -30,6 +30,7 @@
     "chai": "^4.1.2",
     "core-js": "^2.5.4",
     "cypress": "^3.0.3",
+    "jsdiff": "^1.1.1",
     "mocha": "^5.2.0",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
