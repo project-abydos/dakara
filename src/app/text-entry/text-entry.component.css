@@ -4,10 +4,27 @@
 
 .active-bullet-editor-container {
     padding: 1em;
+    position: relative;
 }
 
 .active-bullet-editor {
     width: 100%;
     font-family: 'Times New Roman', Times, serif;
     line-height: 2em;
+    font-size: 16px;
+}
+
+.boundry {
+    position: absolute;
+    border-left: 3px solid rgba(50, 87, 200, 0.64);
+    height: 1.5rem;
+    top: 1.5rem;
+}
+
+.boundry-left {
+    left: 1.55rem;
+}
+
+.boundry-right {
+    left: 49.5rem;
 }

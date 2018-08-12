@@ -12,3 +12,12 @@
 .bullet-entry:nth-child(even) {
     background: #f7f7f7;
 }
+
+.bullet-entry span.added {
+    color: #28a745;
+}
+
+.bullet-entry span.removed {
+    color: #dc3545;
+    text-decoration: line-through
+}

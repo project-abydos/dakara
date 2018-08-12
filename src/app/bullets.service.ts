@@ -7,11 +7,12 @@ const STORAGE_ID = 'DAKARA_BULLET_LIST';
   providedIn: 'root'
 })
 export class BulletsService {
+
   private _subject;
   private _bullets: string[];
 
   constructor() {
-    const data = JSON.parse(window.localStorage.getItem(STORAGE_ID) || "[]");
+    const data: string[] = JSON.parse(window.localStorage.getItem(STORAGE_ID) || '[]');
     this._bullets = data instanceof Array ? data : [];
     this._subject = new BehaviorSubject<string[]>(this._bullets);
   }
@@ -31,7 +32,12 @@ export class BulletsService {
     this._store();
   }
 
+  getActiveBullet(): string {
+    return this._bullets.slice(-1)[0] || '';
+  }
+
   getBullets(): Observable<string[]> {
     return this._subject.asObservable();
   }
+
 }

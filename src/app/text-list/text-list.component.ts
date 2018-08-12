@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BulletsService } from '../bullets.service';
-import { Observable } from 'rxjs';
+import * as diff from 'diff';
 
 @Component({
   selector: 'app-text-list',
@@ -9,10 +9,16 @@ import { Observable } from 'rxjs';
 })
 export class TextListComponent implements OnInit {
 
-  bullets: Observable<string[]>;
+  bullets: string[];
 
   constructor(bulletService: BulletsService) {
-    this.bullets = bulletService.getBullets();
+    bulletService.getBullets().subscribe(bullets => {
+      const activeBullet = bullets.slice(-1)[0] || '';
+      const options = {
+        ignoreWhitespace: false
+      };
+      this.bullets = bullets.map(bullet => diff.diffWords(activeBullet, bullet, options));
+    });
   }
 
   ngOnInit() {

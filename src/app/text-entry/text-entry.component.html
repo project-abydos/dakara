@@ -1,3 +1,5 @@
 <div class="active-bullet-editor-container bg-light">
-  <input type="text" class="form-control active-bullet-editor" (keyup.enter)="update()" [(ngModel)]="activeBullet" autofocus />
+  <div class="boundry boundry-left"></div>
+  <div class="boundry boundry-right"></div>
+  <input type="text" class="form-control active-bullet-editor" (keyup.enter)="update($event)" [(ngModel)]="activeBullet" autofocus />
 </div>

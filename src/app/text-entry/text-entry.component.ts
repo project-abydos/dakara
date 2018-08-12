@@ -10,13 +10,15 @@ export class TextEntryComponent implements OnInit {
 
   activeBullet = '';
 
-  constructor(private bulletService: BulletsService) { }
+  constructor(private bulletService: BulletsService) {
+    this.activeBullet = bulletService.getActiveBullet();
+   }
 
   ngOnInit() {
   }
 
   update(value: string) {
-    this.bulletService.addBullet(this.activeBullet)
+    this.bulletService.addBullet(this.activeBullet);
   }
 
 }

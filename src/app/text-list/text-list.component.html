@@ -1,3 +1,5 @@
-<div class="bullet-entry" *ngFor="let bullet of bullets | async ; let idx = index">
-  {{bullet}}
+<div class="bullet-entry" *ngFor="let bullet of bullets">
+  <span class="bullet-diff" *ngFor="let diff of bullet;" [ngClass]="diff">
+    {{diff.value}}
+  </span>
 </div>
