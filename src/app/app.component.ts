@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BulletsService } from './bullets.service';
 
 @Component({
   selector: 'app-root',
