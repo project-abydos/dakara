@@ -1,0 +1,9 @@
+<div *ngIf="text !== ''">
+    <button type="button" class="btn btn-info disabled">{{text}}</button>
+    <button type="button" class="btn btn-secondary" *ngFor="let result of results" (click)="lookup(result)">{{result}}</button>
+    <span *ngIf="results.length < 1">Sorry, no synonyms found</span>
+</div>
+
+<div *ngIf="text === ''">
+  <div class="btn disabled"><em>Select a word to lookup synonyms</em></div>
+</div>

@@ -1,5 +1,7 @@
 <div class="active-bullet-editor-container bg-light">
   <div class="boundry boundry-left"></div>
   <div class="boundry boundry-right"></div>
-  <input type="text" class="form-control active-bullet-editor" (keyup.enter)="update($event)" [(ngModel)]="activeBullet" autofocus />
+  <input type="text" class="form-control active-bullet-editor" (mouseup)="mouseUp($event)" (keyup.enter)="update($event)" [(ngModel)]="activeBullet" autofocus />
+  <br>
+  <app-text-lookup [text]="selectedText"></app-text-lookup>
 </div>

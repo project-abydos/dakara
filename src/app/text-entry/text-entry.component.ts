@@ -9,16 +9,23 @@ import { BulletsService } from '../bullets.service';
 export class TextEntryComponent implements OnInit {
 
   activeBullet = '';
+  selectedText = '';
 
   constructor(private bulletService: BulletsService) {
     this.activeBullet = bulletService.getActiveBullet();
-   }
+  }
 
   ngOnInit() {
   }
 
-  update(value: string) {
+  update($event: KeyboardEvent) {
     this.bulletService.addBullet(this.activeBullet);
+  }
+
+  mouseUp($event: MouseEvent) {
+
+    const { selectionStart, selectionEnd } = $event.target;
+    this.selectedText = this.activeBullet.slice(selectionStart, selectionEnd);
   }
 
 }

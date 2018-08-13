@@ -25,8 +25,8 @@ export class BulletsService {
   addBullet(bullet: string) {
     if (!this._bullets.includes(bullet)) {
       this._bullets.push(bullet);
-      this._store();
     }
+    this._store();
   }
 
   clearBullets() {
