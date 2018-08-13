@@ -2,6 +2,8 @@
     flex: 1 1 auto;
     overflow-y: scroll;
     padding: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .bullet-entry {
@@ -14,7 +16,7 @@
 }
 
 .bullet-entry span {
-    transition: all 1s ease;
+    display: inline;
 }
 
 .bullet-entry span.added {

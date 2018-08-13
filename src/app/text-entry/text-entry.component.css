@@ -10,21 +10,27 @@
 .active-bullet-editor {
     width: 100%;
     font-family: 'Times New Roman', Times, serif;
-    line-height: 2em;
+    line-height: 2rem;
     font-size: 16px;
+    background: rgba(255,255,255,.75);
+    position: relative;
 }
 
 .boundry {
     position: absolute;
-    border-left: 3px solid rgba(50, 87, 200, 0.64);
-    height: 1.5rem;
-    top: 1.5rem;
+    top:1rem;
+    bottom: 1rem;
 }
 
 .boundry-left {
-    left: 1.55rem;
+    width:48.75rem;
+    background: white;
 }
 
 .boundry-right {
-    left: 49.5rem;
+    left: 48.75rem;
+    width: calc(100% - 49.75rem);
+    background: red;
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
 }
