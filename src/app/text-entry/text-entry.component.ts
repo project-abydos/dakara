@@ -22,7 +22,7 @@ export class TextEntryComponent implements OnInit {
     this.bulletService.addBullet(this.activeBullet);
   }
 
-  mouseUp($event: MouseEvent) {
+  mouseUp($event) {
 
     const { selectionStart, selectionEnd } = $event.target;
     this.selectedText = this.activeBullet.slice(selectionStart, selectionEnd);
