@@ -1,23 +1,39 @@
 :host {
     flex: 1 1 auto;
     overflow-y: scroll;
-    padding: 1em;
+    padding: 1rem;
 }
 
 .bullet-entry {
     font-family: 'Times New Roman', Times, serif;
-    line-height: 2em;
+    line-height: 3rem;
 }
 
 .bullet-entry:nth-child(even) {
     background: #f7f7f7;
 }
 
+.bullet-entry span {
+    transition: all 1s ease;
+}
+
 .bullet-entry span.added {
     color: #28a745;
+    font-weight: 600;
+    display: none;
 }
 
 .bullet-entry span.removed {
-    color: #dc3545;
-    text-decoration: line-through
+    color: #dc3545!important;
+    font-weight: 600;
+    background: rgba(220, 53, 69, 0.05);
+    border-bottom: 2px dotted;
+}
+
+.bullet-entry:hover span.added {
+    display: inline;
+}
+
+.bullet-entry:hover span.removed {
+    display: none;
 }
