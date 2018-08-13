@@ -17,7 +17,9 @@ export class TextListComponent implements OnInit {
       const options = {
         ignoreWhitespace: false
       };
-      this.bullets = bullets.map(bullet => diff.diffWords(activeBullet, bullet, options));
+      this.bullets = bullets
+        .filter(bullet => bullet !== activeBullet)
+        .map(bullet => diff.diffWords(bullet, activeBullet, options));
     });
   }
 
