@@ -29,11 +29,11 @@ export class TextLookupComponent implements OnInit, OnChanges {
   }
 
   doAPILookup(text) {
-    this.httpClient
+    const once = this.httpClient
       .get(`https://api.datamuse.com/words?rel_syn=${text.trim()}&max=10`)
-      .toPromise()
-      .then((words: IDataMuseResponse[]) => {
+      .subscribe((words: IDataMuseResponse[]) => {
         this.results = words.map(word => word.word);
+        once.unsubscribe();
       });
   }
 
