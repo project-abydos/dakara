@@ -3,7 +3,8 @@
     overflow-y: scroll;
     padding: 1rem;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .bullet-entry {
