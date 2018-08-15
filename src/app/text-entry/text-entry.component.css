@@ -27,8 +27,8 @@
 }
 
 .boundry-right {
-    left: 48.75rem;
-    width: calc(100% - 49.75rem);
+    left: 49.5rem;
+    width: calc(100% - 50.5rem);
     background: red;
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
