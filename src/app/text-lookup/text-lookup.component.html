@@ -1,7 +1,7 @@
 <div *ngIf="text !== ''">
-    <button type="button" class="btn btn-info disabled">{{text}}</button>
-    <button type="button" class="btn btn-secondary" *ngFor="let result of results" (click)="lookup(result)">{{result}}</button>
-    <span *ngIf="results.length < 1">Sorry, no synonyms found</span>
+  <button type="button" class="btn btn-info disabled">{{santizedText}}</button>
+  <button type="button" class="btn btn-secondary" *ngFor="let result of results" (click)="lookup(result)" (dblclick)="replace(result)">{{result}}</button>
+  <span *ngIf="results.length < 1">Sorry, no synonyms found</span>
 </div>
 
 <div *ngIf="text === ''">

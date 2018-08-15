@@ -3,5 +3,5 @@
   <div class="boundry boundry-right"></div>
   <input type="text" class="form-control active-bullet-editor" (mouseup)="mouseUp($event)" (keyup.enter)="update($event)" [(ngModel)]="activeBullet" autofocus />
   <br>
-  <app-text-lookup [text]="selectedText"></app-text-lookup>
+  <app-text-lookup [text]="selectedText" (replacement)="onReplace($event)"></app-text-lookup>
 </div>

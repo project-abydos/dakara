@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 interface IWordsAPIResponse {
   synonyms: string[];
   word: string;
+  doSomefin: Function;
 }
 
 @Component({
@@ -14,8 +14,12 @@ interface IWordsAPIResponse {
 export class TextLookupComponent implements OnInit, OnChanges {
 
   @Input() text = '';
+  @Output() replacement = new EventEmitter<string>();
 
+  santizedText = '';
   results: string[] = [];
+
+  _inDblClick = false;
 
   constructor(private httpClient: HttpClient) {
   }
@@ -23,7 +27,7 @@ export class TextLookupComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(changes: SimpleChanges) {
     const { currentValue } = changes.text;
     if (currentValue) {
       this.doAPILookup(currentValue);
@@ -43,7 +47,7 @@ export class TextLookupComponent implements OnInit, OnChanges {
       const once = this.httpClient
         .get(`https://wordsapiv1.p.mashape.com/words/${strippedAndLowerCaseText}/synonyms`, httpOptions)
         .subscribe((words: IWordsAPIResponse) => {
-          this.text = words.word;
+          this.santizedText = words.word;
           this.results = words.synonyms;
           once.unsubscribe();
         });
@@ -51,7 +55,19 @@ export class TextLookupComponent implements OnInit, OnChanges {
   }
 
   lookup(text: string) {
-    this.doAPILookup(text);
+    setTimeout(() => {
+      if (!this._inDblClick) {
+        this.doAPILookup(text);
+      }
+    }, 250);
+  }
+
+  replace(text: string) {
+    this._inDblClick = true;
+    this.replacement.emit(text);
+    setTimeout(() => {
+      this._inDblClick = false;
+    }, 500);
   }
 
 }

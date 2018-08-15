@@ -11,6 +11,9 @@ export class TextEntryComponent implements OnInit {
   activeBullet = '';
   selectedText = '';
 
+  private selectionStart: number;
+  private selectionEnd: number;
+
   constructor(private bulletService: BulletsService) {
     this.activeBullet = bulletService.getActiveBullet();
   }
@@ -23,9 +26,18 @@ export class TextEntryComponent implements OnInit {
   }
 
   mouseUp($event) {
+    this.selectionStart = $event.target.selectionStart;
+    this.selectionEnd = $event.target.selectionEnd;
+    this.selectedText = this.activeBullet.slice(this.selectionStart, this.selectionEnd);
+  }
 
-    const { selectionStart, selectionEnd } = $event.target;
-    this.selectedText = this.activeBullet.slice(selectionStart, selectionEnd);
+  onReplace(text: string) {
+    this.activeBullet = [
+      this.activeBullet.substr(0, this.selectionStart),
+      text,
+      this.activeBullet.substr(this.selectionEnd)
+    ].join('');
+    this.selectionEnd = this.selectionStart + text.length;
   }
 
 }
