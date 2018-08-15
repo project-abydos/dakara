@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-interface IDataMuseResponse {
+interface IWordsAPIResponse {
+  synonyms: string[];
   word: string;
-  score: number;
 }
 
 @Component({
@@ -25,20 +25,32 @@ export class TextLookupComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const { currentValue } = changes.text;
-    currentValue && this.doAPILookup(currentValue);
+    if (currentValue) {
+      this.doAPILookup(currentValue);
+    }
   }
 
-  doAPILookup(text) {
-    const once = this.httpClient
-      .get(`https://api.datamuse.com/words?rel_syn=${text.trim()}&max=10`)
-      .subscribe((words: IDataMuseResponse[]) => {
-        this.results = words.map(word => word.word);
-        once.unsubscribe();
-      });
+  doAPILookup(text: string) {
+    const strippedAndLowerCaseText = (text.toLowerCase().match(/[a-z]{3,}/g) || [])[0];
+    if (strippedAndLowerCaseText) {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'X-Mashape-Key': 'FgpbZPJx5omsh2Gx0AQR8nBwIk4lp1sySedjsnQyLKufvKV9TK',
+          'Accept': 'application/json'
+        })
+      };
+
+      const once = this.httpClient
+        .get(`https://wordsapiv1.p.mashape.com/words/${strippedAndLowerCaseText}/synonyms`, httpOptions)
+        .subscribe((words: IWordsAPIResponse) => {
+          this.text = words.word;
+          this.results = words.synonyms;
+          once.unsubscribe();
+        });
+    }
   }
 
   lookup(text: string) {
-    this.text = text;
     this.doAPILookup(text);
   }
 
