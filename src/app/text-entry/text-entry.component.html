@@ -1,7 +1,11 @@
 <div class="active-bullet-editor-container bg-light">
+  <div class="acronym-box">
+    <button type="button" class="btn btn-secondary pill" *ngFor="let acronym of matchedAcronyms" (click)="onReplace(acronym.abbr)" [ngbTooltip]="acronym.def" [placement]="['top','top-right','top-left']">{{acronym.abbr}}</button>
+  </div>
   <div class="boundry boundry-left"></div>
   <div class="boundry boundry-right"></div>
-  <input type="text" class="form-control active-bullet-editor" (mouseup)="mouseUp($event)" (keyup.enter)="update($event)" [(ngModel)]="activeBullet" autofocus />
+  <input type="text" class="form-control active-bullet-editor" (keypress)="doAcronymLookup($event)" (mouseup)="doSynonymLookup($event)"
+    (keyup.enter)="doSaveBullet()" [(ngModel)]="activeBullet" autofocus />
   <br>
   <app-text-lookup [text]="selectedText" (replacement)="onReplace($event)"></app-text-lookup>
 </div>

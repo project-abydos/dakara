@@ -4,3 +4,14 @@ html, body {
     margin: 0;
     font-size: 16px;
 }
+
+.btn.pill {
+    margin: .35em;
+    font-weight: 200;
+    font-size: 1rem;
+    border-radius: 10rem;
+}
+
+.tooltip-inner {
+    max-width: 40vw!important;
+}

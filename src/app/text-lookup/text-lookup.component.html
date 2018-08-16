@@ -1,9 +1,9 @@
 <div *ngIf="text !== ''">
-  <button type="button" class="btn btn-info disabled">{{santizedText}}</button>
-  <button type="button" class="btn btn-secondary" *ngFor="let result of results" (click)="lookup(result)" (dblclick)="replace(result)">{{result}}</button>
+  <button type="button" class="btn btn-info disabled pill">{{santizedText}}</button>
+  <button type="button" class="btn btn-secondary pill" *ngFor="let result of results" (click)="lookup(result)" (dblclick)="replace(result)">{{result}}</button>
   <span *ngIf="results.length < 1">Sorry, no synonyms found</span>
 </div>
 
 <div *ngIf="text === ''">
-  <div class="btn disabled"><em>Select a word to lookup synonyms.  Single-click to explore more, double-click to replace.</em></div>
+  <div class="btn disabled pill"><em>Select a word to lookup synonyms.  Single-click to explore more, double-click to replace.</em></div>
 </div>
