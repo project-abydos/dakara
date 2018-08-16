@@ -46,11 +46,17 @@ export class TextLookupComponent implements OnInit, OnChanges {
 
       const once = this.httpClient
         .get(`https://wordsapiv1.p.mashape.com/words/${strippedAndLowerCaseText}/synonyms`, httpOptions)
-        .subscribe((words: IWordsAPIResponse) => {
-          this.santizedText = words.word;
-          this.results = words.synonyms;
-          once.unsubscribe();
-        });
+        .subscribe(
+          (words: IWordsAPIResponse) => {
+            this.santizedText = words.word;
+            this.results = words.synonyms;
+            once.unsubscribe();
+          },
+          error => {
+            console.log(error);
+            this.santizedText = strippedAndLowerCaseText;
+            this.results = [];
+          });
     }
   }
 
