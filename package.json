@@ -8,7 +8,8 @@
     "package": "npm run build && git add dist && git commit -am \"deploy $(date)\"",
     "deploy": "npm run package && git push && git subtree push --prefix dist/dakara origin gh-pages",
     "test": "cypress run",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "g2m": "ts-node bin/gherkin-to-mocha.ts"
   },
   "private": true,
   "dependencies": {
@@ -27,11 +28,8 @@
     "@fortawesome/free-solid-svg-icons": "^5.2.0",
     "@ng-bootstrap/ng-bootstrap": "^2.2.2",
     "bootstrap": "^4.1.3",
-    "chai": "^4.1.2",
     "core-js": "^2.5.4",
-    "cypress": "^3.0.3",
     "jsdiff": "^1.1.1",
-    "mocha": "^5.2.0",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26"
   },
@@ -43,9 +41,18 @@
     "@types/chai": "^4.1.4",
     "@types/mocha": "^5.2.5",
     "@types/node": "~8.9.4",
+    "chai": "^4.1.2",
     "codelyzer": "~4.2.1",
-    "ts-node": "~5.0.1",
+    "cypress": "^3.0.3",
+    "gherkin": "^5.1.0",
+    "mocha": "^5.2.0",
+    "ts-node": "^5.0.1",
     "tslint": "~5.9.1",
     "typescript": "~2.7.2"
+  },
+  "config": {
+    "g2m": {
+      "destinationPath": "cypress/integration"
+    }
   }
 }
