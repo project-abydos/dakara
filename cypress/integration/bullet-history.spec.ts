@@ -1,7 +1,7 @@
-/// <reference path="../../node_modules/cypress/types/index.d.ts" />
 
-const suite = describe;
-const test = it;
+// Not exposed by Cypress
+suite = context;
+test = it;
 
 describe('Feature: Bullet history', () => {
   context('As Sgt Snuffy you want to be able to see the history of the  bullet you are working', () => {

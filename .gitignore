@@ -38,3 +38,4 @@ cypress/videos
 # System Files
 .DS_Store
 Thumbs.db
+cypress/screenshots
