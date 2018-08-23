@@ -18,6 +18,7 @@ export class TextLookupComponent implements OnInit, OnChanges {
 
   santizedText = '';
   results: string[] = [];
+  loading = false;
 
   _inDblClick = false;
 
@@ -30,6 +31,7 @@ export class TextLookupComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const { currentValue } = changes.text;
     if (currentValue) {
+      this.loading = true;
       this.doAPILookup(currentValue);
     }
   }
@@ -50,12 +52,14 @@ export class TextLookupComponent implements OnInit, OnChanges {
           (words: IWordsAPIResponse) => {
             this.santizedText = words.word;
             this.results = words.synonyms;
+            this.loading = false;
             once.unsubscribe();
           },
           error => {
             console.log(error);
             this.santizedText = strippedAndLowerCaseText;
             this.results = [];
+            this.loading = false;
           });
     }
   }
