@@ -41,7 +41,9 @@ describe('Feature: Bullet history', () => {
       });
 
       test('But: if I the bullet already exists in the history, nothing happens', () => {
-
+        cy.get('.bullet-entry').should('have.length', 1);
+        cy.get(`.active-bullet-editor`).type('{enter}');
+        cy.get('.bullet-entry').should('have.length', 1);
       });
     });
   });
