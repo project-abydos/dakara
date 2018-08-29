@@ -1,10 +1,10 @@
 Feature: Bullet history
-  As Sgt Snuffy you want to be able to see the history of the
-  bullet you are working
+  As Sgt Snuffy I want to be able to see the history of the
+  bullet I am working
 
   Background:
-    Given you are on the dakara page
-    And you have entered a bullet
+    Given I am on the dakara page
+    And I have entered a bullet
 
   Scenario: Sgt Snuffy edits the bullet
     Given I type in the bullet edit box

@@ -4,22 +4,22 @@ suite = context;
 test = it;
 
 describe('Feature: Bullet history', () => {
-  context('As Sgt Snuffy you want to be able to see the history of the  bullet you are working', () => {
+  context('As Sgt Snuffy I want to be able to see the history of the bullet I am working', () => {
 
     before('Background:', () => {
 
       cy.visit('/');
 
-      specify('Given: you are on the dakara page', () => {
+      specify('Given: I am on the dakara page', () => {
         test('should see the website', () => cy.document().should('have.property', 'charset'));
       });
 
-      specify('And: you have entered a bullet', () => {
+      specify('And: I have entered a bullet', () => {
         cy
           .get('.active-bullet-editor')
           .should('have.length', 1)
           .type('- action stuff; result stuff--impact stuff!')
-          .type('{enter');
+          .type('{enter}');
       });
 
     });
