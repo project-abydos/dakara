@@ -21,14 +21,14 @@ export class TextEntryComponent implements OnInit {
   private selectionEnd: number;
 
   constructor(private bulletService: BulletsService, private dodAcryonymService: DodAcronymsService) {
-    this.activeBullet = bulletService.getActiveBullet();
+    this.activeBullet = bulletService.getActiveBulletFromCollection();
   }
 
   ngOnInit() {
   }
 
   doSaveBullet() {
-    this.bulletService.addBullet(this.activeBullet);
+    this.bulletService.addBulletToCollection(this.activeBullet);
   }
 
   doSynonymLookup($event: IKeyboardEvent) {
@@ -45,7 +45,7 @@ export class TextEntryComponent implements OnInit {
     this.selectionEnd = selectionEnd + 1;
     this.selectionStart = this.selectionEnd - matchedText.length;
 
-    this.bulletService.updateActiveBullet(this.activeBullet);
+    this.bulletService.updateActiveBulletInCollection(this.activeBullet);
 
     if (matchedText.length > 1) {
       this.matchedAcronyms = this.dodAcryonymService.lookup(matchedText);
@@ -59,6 +59,7 @@ export class TextEntryComponent implements OnInit {
       this.activeBullet.substr(this.selectionEnd)
     ].join('');
     this.selectionEnd = this.selectionStart + text.length;
+    this.bulletService.updateActiveBulletInCollection(this.activeBullet);
   }
 
 }

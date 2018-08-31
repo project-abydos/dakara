@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BulletsService, IBulletCollection } from '../bullets.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  bullets: string[] = [
-    'Other bullets go here...'
-  ];
+  bullets: Observable<IBulletCollection[]>;
+
+  constructor(private bulletService: BulletsService) {
+    this.bullets = bulletService.watchBulletCollections();
+  }
 
   ngOnInit() {
   }

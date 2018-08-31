@@ -16,7 +16,7 @@ export class TextListComponent implements OnInit {
   bullets: string[];
 
   constructor(bulletService: BulletsService) {
-    bulletService.watchBullets().subscribe(({ bullets, active }: IBulletCollection) => {
+    bulletService.watchBulletCollection().subscribe(({ bullets, active }: IBulletCollection) => {
       this.bullets = bullets.map(bullet => diff.diffWords(bullet, active, DIFF_OPTIONS));
     });
   }

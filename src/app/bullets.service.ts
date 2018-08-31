@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 
-const STORAGE_ID = 'DAKARA_BULLET_LIST_V1';
+const STORAGE_ID = 'DAKARA_MULTI_BULLET_LIST';
 
 export interface IBulletCollection {
   bullets: string[];
   active: string;
+  isCurrent: boolean;
 }
 
 @Injectable({
@@ -13,60 +14,102 @@ export interface IBulletCollection {
 })
 export class BulletsService {
 
-  private _subject: BehaviorSubject<IBulletCollection>;
-  private _collection: IBulletCollection = {
-    bullets: [],
-    active: ''
-  };
+  private _collectionSubject: BehaviorSubject<IBulletCollection>;
+  private _collectionsSubject: BehaviorSubject<IBulletCollection[]>;
+  private _collections: IBulletCollection[];
+  private _activeIndex: number;
 
   constructor() {
-    const data: IBulletCollection = JSON.parse(window.localStorage.getItem(STORAGE_ID) || '[]');
+    this._collections = this._getValidDataStore();
+    this._activeIndex = this._activeCollectionIndex();
+    this._collectionSubject = new BehaviorSubject<IBulletCollection>(this._activeCollection());
+    this._collectionsSubject = new BehaviorSubject<IBulletCollection[]>(this._collections);
+  }
+
+  private _getValidDataStore(): IBulletCollection[] {
+    let parsedData: IBulletCollection[];
+    let isValidJSON = false;
+
     try {
-      this._collection = data.bullets instanceof Array ? data : this._emptyCollection();
+      parsedData = JSON.parse(window.localStorage.getItem(STORAGE_ID) || '');
+
+      isValidJSON = !!(parsedData instanceof Array &&
+        parsedData[0].bullets instanceof Array &&
+        typeof parsedData[0].isCurrent === 'boolean' &&
+        typeof parsedData[0].active === 'string');
     } catch (e) {
       console.warn('JSON error parsing localStorage data');
-      this._collection = this._emptyCollection();
     }
-    this._collection.active = this.getActiveBullet();
-    this._subject = new BehaviorSubject<IBulletCollection>(this._collection);
+
+    return isValidJSON ? parsedData : [this._emptyCollection()];
   }
 
   private _store() {
-    window.localStorage.setItem(STORAGE_ID, JSON.stringify(this._collection));
-    this._subject.next(this._collection);
+    window.localStorage.setItem(STORAGE_ID, JSON.stringify(this._collections));
+    this._collectionSubject.next(this._activeCollection());
+    this._collectionsSubject.next(this._collections);
   }
 
   private _emptyCollection(): IBulletCollection {
+    this._activeIndex = 0;
     return {
       bullets: [],
-      active: ''
+      active: '',
+      isCurrent: true
     };
   }
 
-  getActiveBullet(): string {
-    return this._collection.active || this._collection.bullets.slice(-1)[0] || '';
+  private _activeCollectionIndex(): number {
+    return this._collections.findIndex(collection => collection.isCurrent);
   }
 
-  updateActiveBullet(bullet: string = '') {
-    this._collection.active = bullet;
+  private _activeCollection(): IBulletCollection {
+    return this._collections[this._activeIndex];
+  }
+
+  getActiveBulletFromCollection(): string {
+    const { active, bullets } = this._activeCollection();
+    return active || bullets.slice(-1)[0] || '';
+  }
+
+  updateActiveBulletInCollection(bullet: string = '') {
+    this._activeCollection().active = bullet;
     this._store();
   }
 
-  addBullet(bullet: string) {
-    if (!this._collection.bullets.includes(bullet)) {
-      this._collection.bullets.push(bullet);
-      this._collection.active = bullet;
+  updateActiveCollection(index: number) {
+    this._activeIndex = index;
+    this._collections.forEach(collection => collection.isCurrent = false);
+    this._collections[index].isCurrent = true;
+    this._store();
+  }
+
+  addBulletToCollection(bullet: string) {
+    const collection = this._activeCollection();
+    if (!collection.bullets.includes(bullet)) {
+      collection.bullets.push(bullet);
+      collection.active = bullet;
     }
     this._store();
   }
 
-  clearBullets() {
-    this._collection = this._emptyCollection();
+  clearBulletCollection() {
+    this._collections.splice(this._activeCollectionIndex(), 1);
+    this._activeIndex = 0;
     this._store();
   }
 
-  watchBullets(): Observable<IBulletCollection> {
-    return this._subject.asObservable();
+  createCollection() {
+    this._collections.unshift(this._emptyCollection());
+    this._store();
+  }
+
+  watchBulletCollection(): Observable<IBulletCollection> {
+    return this._collectionSubject.asObservable();
+  }
+
+  watchBulletCollections(): Observable<IBulletCollection[]> {
+    return this._collectionsSubject.asObservable();
   }
 
 }
