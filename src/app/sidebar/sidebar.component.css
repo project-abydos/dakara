@@ -2,7 +2,7 @@
   display: flex;
   width: 35%;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .8);
-  background: rgba(52, 58, 64, .75);
+  background: rgba(52, 58, 64, .9);
 }
 
 ul,
@@ -23,22 +23,4 @@ ul {
   text-overflow: ellipsis;
   max-width: 100%;
   transition: all .2s ease-in-out;
-}
-
-.nav-link .feather {
-  margin-right: 4px;
-}
-
-.nav-link.active {
-  color: #007bff;
-}
-
-.nav-link:hover .feather,
-.nav-link.active .feather {
-  color: inherit;
-}
-
-.sidebar-heading {
-  font-size: .75rem;
-  text-transform: uppercase;
 }
