@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BulletsService } from '../bullets.service';
+import { BulletsService, IBulletCollection } from '../bullets.service';
 import * as diff from 'diff';
+
+const DIFF_OPTIONS = {
+  ignoreWhitespace: false
+};
 
 @Component({
   selector: 'app-text-list',
@@ -12,18 +16,12 @@ export class TextListComponent implements OnInit {
   bullets: string[];
 
   constructor(bulletService: BulletsService) {
-    bulletService.getBullets().subscribe(bullets => {
-      const activeBullet = bullets.slice(-1)[0] || '';
-      const options = {
-        ignoreWhitespace: false
-      };
-      this.bullets = bullets.map(bullet => diff.diffWords(bullet, activeBullet, options));
+    bulletService.watchBullets().subscribe(({ bullets, active }: IBulletCollection) => {
+      this.bullets = bullets.map(bullet => diff.diffWords(bullet, active, DIFF_OPTIONS));
     });
   }
 
   ngOnInit() {
   }
-
-
 
 }

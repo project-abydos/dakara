@@ -4,7 +4,7 @@
   </div>
   <div class="boundry boundry-left"></div>
   <div class="boundry boundry-right"></div>
-  <input type="text" class="form-control active-bullet-editor" (keypress)="doAcronymLookup($event)" (mouseup)="doSynonymLookup($event)"
+  <input type="text" class="form-control active-bullet-editor" (keydown)="doAcronymLookup($event)" (mouseup)="doSynonymLookup($event)"
     (keyup.enter)="doSaveBullet()" [(ngModel)]="activeBullet" autofocus />
   <br>
   <app-text-lookup [text]="selectedText" (replacement)="onReplace($event)"></app-text-lookup>

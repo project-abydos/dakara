@@ -45,7 +45,9 @@ export class TextEntryComponent implements OnInit {
     this.selectionEnd = selectionEnd + 1;
     this.selectionStart = this.selectionEnd - matchedText.length;
 
-    if (matchedText) {
+    this.bulletService.updateActiveBullet(this.activeBullet);
+
+    if (matchedText.length > 1) {
       this.matchedAcronyms = this.dodAcryonymService.lookup(matchedText);
     }
   }
