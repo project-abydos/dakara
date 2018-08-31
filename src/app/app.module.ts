@@ -14,6 +14,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { TextLookupComponent } from './text-lookup/text-lookup.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 library.add(fas, fab);
 
 @NgModule({
@@ -22,7 +23,8 @@ library.add(fas, fab);
     TextEntryComponent,
     TextListComponent,
     ActionBarComponent,
-    TextLookupComponent
+    TextLookupComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
