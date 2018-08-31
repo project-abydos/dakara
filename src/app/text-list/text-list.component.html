@@ -1,3 +1,6 @@
+<div class="alert alert-info" role="alert" *ngIf="bullets.length < 1">
+  No history created yet. Press ENTER to add a version of the bullet here.
+</div>
 <div class="bullet-entry" *ngFor="let bullet of bullets">
   <span class="bullet-diff" *ngFor="let diff of bullet;" [ngClass]="diff">
     {{diff.value}}

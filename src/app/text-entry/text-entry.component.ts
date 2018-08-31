@@ -22,6 +22,7 @@ export class TextEntryComponent implements OnInit {
 
   constructor(private bulletService: BulletsService, private dodAcryonymService: DodAcronymsService) {
     this.activeBullet = bulletService.getActiveBulletFromCollection();
+    bulletService.watchBulletCollection().subscribe(collection => this.activeBullet = collection.active);
   }
 
   ngOnInit() {

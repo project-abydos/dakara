@@ -51,16 +51,16 @@ export class BulletsService {
   }
 
   private _emptyCollection(): IBulletCollection {
-    this._activeIndex = 0;
     return {
       bullets: [],
-      active: '',
+      active: 'Your bullet here',
       isCurrent: true
     };
   }
 
   private _activeCollectionIndex(): number {
-    return this._collections.findIndex(collection => collection.isCurrent);
+    const index = this._collections.findIndex(collection => collection.isCurrent);
+    return index < 0 ? 0 : index;
   }
 
   private _activeCollection(): IBulletCollection {
@@ -78,9 +78,9 @@ export class BulletsService {
   }
 
   updateActiveCollection(index: number) {
-    this._activeIndex = index;
     this._collections.forEach(collection => collection.isCurrent = false);
     this._collections[index].isCurrent = true;
+    this._activeIndex = index;
     this._store();
   }
 
@@ -95,12 +95,16 @@ export class BulletsService {
 
   clearBulletCollection() {
     this._collections.splice(this._activeCollectionIndex(), 1);
-    this._activeIndex = 0;
+    if (this._collections.length < 1) {
+      this._collections = [this._emptyCollection()];
+    }
+    this.updateActiveCollection(0);
     this._store();
   }
 
   createCollection() {
     this._collections.unshift(this._emptyCollection());
+    this.updateActiveCollection(0);
     this._store();
   }
 

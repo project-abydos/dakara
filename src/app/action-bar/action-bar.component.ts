@@ -10,8 +10,6 @@ export class ActionBarComponent implements OnInit {
 
   ngOnInit() { }
 
-  clearBullets = () => this.bulletService.clearBulletCollection();
-
   constructor(private bulletService: BulletsService) { }
 
 }

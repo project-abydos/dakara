@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="button-bar d-flex justify-content-end">
-    <button class="info btn btn-secondary" title="Info"><fa-icon [icon]="['fas', 'info-circle']"></fa-icon></button>
-    <button (click)="clearBullets()" class="clear-history btn btn-danger" title="Clear History"><fa-icon [icon]="['fas', 'history']"></fa-icon></button>
+    <button class="btn btn-success" title="Add Bullet" (click)="bulletService.createCollection()"><fa-icon [icon]="['fas', 'plus-circle']"></fa-icon></button>
+    <button (click)="bulletService.clearBulletCollection()" class="clear-history btn btn-danger" title="Clear History"><fa-icon [icon]="['fas', 'history']"></fa-icon></button>
   </div>
 </nav>
