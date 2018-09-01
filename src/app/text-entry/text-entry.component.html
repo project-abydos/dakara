@@ -1,7 +1,4 @@
 <div class="active-bullet-editor-container bg-light">
-  <div class="acronym-box">
-    <button type="button" class="btn btn-secondary pill" *ngFor="let acronym of matchedAcronyms" (click)="onReplace(acronym.abbr)" [ngbTooltip]="acronym.def" [placement]="['top','top-right','top-left']">{{acronym.abbr}}</button>
-  </div>
   <div class="boundry boundry-left"></div>
   <div class="boundry boundry-right"></div>
   <input type="text" class="form-control active-bullet-editor" (keydown)="doAcronymLookup($event)" (mouseup)="doSynonymLookup($event)"

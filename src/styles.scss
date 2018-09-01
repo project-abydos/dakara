@@ -1,24 +1,21 @@
-<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import 'scss/shards-dashboards.scss';
+@import '../node_modules/bootstrap/scss/bootstrap';
 
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    font-size: 16px;
-    font-family: 'Ubuntu', sans-serif !important;
-=======
 html,
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   font-size: 16px;
->>>>>>> style: remove bullet entry outline
+  font-family: 'Ubuntu', sans-serif !important;
+}
+
+.btn {
+  margin: .25rem;
 }
 
 .btn.pill {
-  margin: .35em;
   font-weight: 200;
   font-size: 1rem;
   border-radius: 10rem;
@@ -29,5 +26,5 @@ body {
 }
 
 :focus {
-  box-shadow: none!important;
+  box-shadow: none !important;
 }

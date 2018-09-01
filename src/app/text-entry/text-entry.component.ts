@@ -15,7 +15,6 @@ export class TextEntryComponent implements OnInit {
 
   activeBullet = '';
   selectedText = '';
-  matchedAcronyms: IDoDAcronym[];
 
   private selectionStart: number;
   private selectionEnd: number;
@@ -39,18 +38,7 @@ export class TextEntryComponent implements OnInit {
   }
 
   doAcronymLookup($event: IKeyboardEvent) {
-    const { key, target: { selectionEnd } } = $event;
-    const precedingText = this.activeBullet.substr(0, selectionEnd);
-    const matchedText = (precedingText.match(/[A-Z\-\d][A-Za-z\-\d]*$/) || '') + key;
-
-    this.selectionEnd = selectionEnd + 1;
-    this.selectionStart = this.selectionEnd - matchedText.length;
-
     this.bulletService.updateActiveBulletInCollection(this.activeBullet);
-
-    if (matchedText.length > 1) {
-      this.matchedAcronyms = this.dodAcryonymService.lookup(matchedText);
-    }
   }
 
   onReplace(text: string) {

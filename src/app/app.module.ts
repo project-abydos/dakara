@@ -15,6 +15,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { TextLookupComponent } from './text-lookup/text-lookup.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AcronymLookupComponent } from './acronym-lookup/acronym-lookup.component';
 library.add(fas, fab);
 
 @NgModule({
@@ -24,7 +25,8 @@ library.add(fas, fab);
     TextListComponent,
     ActionBarComponent,
     TextLookupComponent,
-    SidebarComponent
+    SidebarComponent,
+    AcronymLookupComponent
   ],
   imports: [
     BrowserModule,

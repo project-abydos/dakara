@@ -1,32 +1,109 @@
-<div class="app-container align-items-stretch">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">{{ title }}</a>
-    <ul class="navbar-nav flex-row ml-auto d-flex">
-      <li class="nav-item">
-<<<<<<< HEAD
-        <a class="nav-link" href="{{project_abydos_url}}" title="Project Abydos Home">
-          <svg class="svg-inline--fa fa-w-16" viewBox="722 422 562 599" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" version="1.1">
-            <path id="path" fill="currentColor" d="M722 1021 L990.439 611.176 C943.91 605.029 908 565.209 908 517 908 464.533 950.533 422 1003 422 1055.467 422 1098 464.533 1098 517 1098 565.209 1062.09 605.029 1015.561 611.176 L1284 1021 1070 1021 1118 914.891 1003 740.324 888 914.891 936 1021 722 1021 Z M1002.5 561 C1026.524 561 1046 541.524 1046 517.5 1046 493.476 1026.524 474 1002.5 474 978.476 474 959 493.476 959 517.5 959 541.524 978.476 561 1002.5 561 Z" stroke="none"/>
-          </svg>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{github_url}}" title="GitHub Project"><fa-icon [icon]="['fab', 'github']"></fa-icon></a>
-=======
-        <a class="nav-link" href="{{github_url}}" title="GitHub Project">
-          <fa-icon [icon]="['fab', 'github']"></fa-icon>
-        </a>
->>>>>>> feat: stub bullet history sidebar
-      </li>
-    </ul>
-  </nav>
-  <div class="d-flex flex-grow-1 body-container">
-    <div class="d-flex flex-grow-1 left-panel">
-      <app-text-list></app-text-list>
-    </div>
-    <app-sidebar></app-sidebar>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Main Sidebar -->
+    <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" style="position: fixed">
+      <div class="main-navbar">
+        <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+          <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+            <div class="d-table m-auto">
+              <svg class="svg-inline--fa fa-w-16" viewBox="722 422 562 599" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" role="img" version="1.1">
+                <path id="path" fill="currentColor" d="M722 1021 L990.439 611.176 C943.91 605.029 908 565.209 908 517 908 464.533 950.533 422 1003 422 1055.467 422 1098 464.533 1098 517 1098 565.209 1062.09 605.029 1015.561 611.176 L1284 1021 1070 1021 1118 914.891 1003 740.324 888 914.891 936 1021 722 1021 Z M1002.5 561 C1026.524 561 1046 541.524 1046 517.5 1046 493.476 1026.524 474 1002.5 474 978.476 474 959 493.476 959 517.5 959 541.524 978.476 561 1002.5 561 Z"
+                  stroke="none" />
+              </svg>
+              <span class="d-none d-md-inline ml-1">Dakara</span>
+            </div>
+          </a>
+          <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+            <i class="material-icons">&#xE5C4;</i>
+          </a>
+        </nav>
+      </div>
+      <app-sidebar></app-sidebar>
+    </aside>
+    <!-- End Main Sidebar -->
+    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+      <div class="main-navbar sticky-top bg-white">
+        <!-- Main Navbar -->
+        <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+          <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+            <div class="input-group input-group-seamless ml-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search">
+            </div>
+          </form>
+        </nav>
+      </div>
+      <!-- / .main-navbar -->
+      <div class="main-content-container container-fluid px-4">
+        <div class="page-header row no-gutters py-3">
+        </div>
+        <!-- End Page Header -->
+        <div class="row">
+          <!-- Users Stats -->
+          <div class="col-lg-9 col-md-12 col-sm-12 mb-4">
+            <div class="card card-small">
+              <div class="card-header border-bottom">
+                <h6 class="m-0">Bullet History</h6>
+              </div>
+              <div class="card-body pt-0">
+                <div class="row bg-light">
+                  <app-text-list></app-text-list>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Users Stats -->
+          <!-- Users By Device Stats -->
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+            <app-acronym-lookup></app-acronym-lookup>
+          </div>
+          <!-- End Users By Device Stats -->
+          <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
+            <div class="card card-small h-100">
+              <div class="card-header border-bottom">
+                <div class="row">
+                  <div class="col-lg-6 m-0">
+                    <h6 class="edit-header">Draft Bullet</h6>
+                  </div>
+                  <div class="col-lg-6 m-0 d-flex justify-content-end">
+                    <app-action-bar></app-action-bar>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex flex-column">
+                <app-text-entry></app-text-entry>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Blog</a>
+          </li>
+        </ul>
+        <span class="copyright ml-auto my-auto mr-2">Project Abydos
+          <a href="https://github.com/project-abydos/dakara" rel="nofollow">Github</a>
+        </span>
+      </footer>
+    </main>
   </div>
-
-  <app-action-bar></app-action-bar>
-  <app-text-entry></app-text-entry>
 </div>

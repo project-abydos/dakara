@@ -1,7 +1,9 @@
-<ul class="nav flex-column p-2">
-  <li class="nav-item" *ngFor="let bullet of (bullets | async); index as idx">
-    <a class="nav-link btn btn-outline-info m-2" [ngClass]="{active: bullet.isCurrent}" (click)="bulletService.updateActiveCollection(idx)">
-      {{bullet.active}}
-    </a>
-  </li>
-</ul>
+<div class="nav-wrapper">
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let bullet of (bullets | async); index as idx">
+      <a class="nav-link active" [ngClass]="{active: bullet.isCurrent}" (click)="bulletService.updateActiveCollection(idx)">
+        <span>{{bullet.active}}</span>
+      </a>
+    </li>
+  </ul>
+</div>
