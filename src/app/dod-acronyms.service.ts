@@ -34306,6 +34306,10 @@ export class DodAcronymsService {
 
     constructor() { }
 
+    all(): IDoDAcronym[] {
+        return DICTIONARY;
+    }
+
     lookup(abbreviation: string): IDoDAcronym[] {
         console.log(`lookup ${abbreviation}`);
         return DICTIONARY.filter(acronym => acronym.abbr.indexOf(abbreviation) === 0);

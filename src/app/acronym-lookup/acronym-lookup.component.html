@@ -1,13 +1,13 @@
 <div class="card card-small h-100">
   <div class="card-header border-bottom">
-    <h6 class="m-0">Acronyms</h6>
+    <h6 class="m-0">Acronyms ({{acronyms.length | number:0}})</h6>
   </div>
   <div class="card-body">
     <button type="button" class="btn btn-secondary pill" *ngFor="let acronym of acronyms" (click)="onReplace(acronym.abbr)"
       [ngbTooltip]="acronym.def" [placement]="['top','top-left']">{{acronym.abbr}}</button>
   </div>
   <div class="card-footer border-top">
-    <input class="navbar-search form-control" type="text" placeholder="Lookup..." aria-label="Lookup" [(ngModel)]="search"
+    <input class="navbar-search form-control" type="text" placeholder="Search..." aria-label="Lookup" [(ngModel)]="search"
       (ngModelChange)="doSearch($event)">
   </div>
 </div>

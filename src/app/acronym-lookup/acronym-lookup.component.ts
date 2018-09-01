@@ -8,7 +8,7 @@ import { DodAcronymsService, IDoDAcronym } from '../dod-acronyms.service';
 })
 export class AcronymLookupComponent implements OnInit {
 
-  acronyms: IDoDAcronym[];
+  acronyms = this.dodAcronymService.all();
   search: string;
 
   constructor(private dodAcronymService: DodAcronymsService) { }
@@ -17,7 +17,7 @@ export class AcronymLookupComponent implements OnInit {
   }
 
   doSearch(search: string) {
-    this.acronyms = this.dodAcronymService.lookup(search);
+    this.acronyms = this.dodAcronymService.lookup(search.toUpperCase());
   }
 
 }
