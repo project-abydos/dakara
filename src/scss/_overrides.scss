@@ -7,15 +7,18 @@ $border-color: #e1e5eb;
 
 // Cards
 $card-cap-bg: #fff;
+$card-border-radius: 0;
 
 
 // Typography & Fonts
 
-// Disable Google Fonts imports
-$enable-fonts-import: false;
+// Enable Google Fonts imports
+$enable-fonts-import: true;
 
-// Use the System UI font instead of Poppins.
-$font-family-poppins-first:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+// Use the Ubuntu, then System UI font instead of Poppins.
+$font-family-poppins-first: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-system-first: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 
 $headings-color: #3D5170;
 $font-size-sm: 0.6875rem;
