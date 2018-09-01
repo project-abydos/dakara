@@ -6,3 +6,11 @@ h6.edit-header {
 .navbar-search {
   margin-top: .75rem;
 }
+
+.nav-item:first-child {
+  margin-left: 1rem;
+}
+
+.nav-link-icon {
+  font-size: 1.5rem;
+}
