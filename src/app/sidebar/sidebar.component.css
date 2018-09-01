@@ -1,0 +1,4 @@
+.create-bullet-button {
+  margin: 1.5rem;
+  width: calc(100% - 3rem);
+}

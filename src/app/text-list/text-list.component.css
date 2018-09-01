@@ -1,15 +1,8 @@
 :host {
   width: 100%;
-}
-
-.container {
-  flex: 1 1 auto;
   overflow-y: scroll;
+  height: 50vh;
   padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 50vh;
 }
 
 .bullet-entry {
