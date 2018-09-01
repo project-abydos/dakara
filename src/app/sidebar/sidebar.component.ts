@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
 
   bullets: Observable<IBulletCollection[]>;
 
-  constructor(private bulletService: BulletsService) {
+  constructor(public bulletService: BulletsService) {
     this.bullets = bulletService.watchBulletCollections();
   }
 
