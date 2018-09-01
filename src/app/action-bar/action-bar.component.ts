@@ -10,6 +10,6 @@ export class ActionBarComponent implements OnInit {
 
   ngOnInit() { }
 
-  constructor(private bulletService: BulletsService) { }
+  constructor(public bulletService: BulletsService) { }
 
 }

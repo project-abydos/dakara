@@ -9,6 +9,7 @@ import { DodAcronymsService, IDoDAcronym } from '../dod-acronyms.service';
 export class AcronymLookupComponent implements OnInit {
 
   acronyms: IDoDAcronym[];
+  search: string;
 
   constructor(private dodAcronymService: DodAcronymsService) { }
 
