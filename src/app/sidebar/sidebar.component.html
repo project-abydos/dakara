@@ -5,11 +5,10 @@
         <span>{{bullet.active}}</span>
       </a>
     </li>
-    <li>
-      <button type="button" class="btn btn-dark caps create-bullet-button" (click)="bulletService.createCollection()">
-        <fa-icon [icon]="['fas', 'edit']"></fa-icon>&nbsp;
-        Create a New Bullet
-      </button>
+    <li class="nav-item">
+      <a class="nav-link text-center" (click)="bulletService.createCollection()">
+        <span><fa-icon [icon]="['fas', 'plus']"></fa-icon></span>
+      </a>
     </li>
   </ul>
 </div>

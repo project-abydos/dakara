@@ -12,10 +12,10 @@ $card-border-radius: 0;
 
 // Typography & Fonts
 
-// Enable Google Fonts imports
+// enable Google Fonts imports
 $enable-fonts-import: true;
 
-// Use the Ubuntu, then System UI font instead of Poppins.
+// use the Ubuntu, then System UI font instead of Poppins.
 $font-family-poppins-first: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 $font-family-system-first: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
@@ -78,9 +78,24 @@ $custom-file-border-radius: $input-border-radius;
 // Navs
 $nav-link-padding-x: 0.625rem;
 
-// Navbar brand
+// navbar brand
 $navbar-brand-font-size: 1.5rem;
 $main-navbar-brand-font-size: 1.5rem;
+
+// main sidebar
+//$main-sidebar-background: $light;
+
+/* main sidebar nav
+$main-sidebar-nav-link-border: black;
+$main-sidebar-nav-link-color: black;
+$main-sidebar-nav-link-icon-color: black;
+
+// main sidebar nav active
+$main-sidebar-nav-link-active-box-shadow: none;
+$main-sidebar-nav-link-active-background-color: lighten(black, 48%);;
+$main-sidebar-nav-link-active-color: black;
+$main-sidebar-nav-link-active-icon-color: black;
+*/
 
 // Dropdowns
 $dropdown-padding-y: 10px;

@@ -1,9 +1,9 @@
 <div *ngIf="text !== ''">
   <div *ngIf="loading">
-    <button type="button" class="btn btn-info disabled pill"><div class="loader"></div></button>
+    <button type="button" class="btn btn-primary disabled pill"><div class="loader"></div></button>
   </div>
   <div *ngIf="!loading">
-    <button type="button" class="btn btn-info disabled pill">{{santizedText}}</button>
+    <button type="button" class="btn btn-primary disabled pill">{{santizedText}}</button>
     <button type="button" class="btn btn-secondary pill" *ngFor="let result of results" (click)="lookup(result)" (dblclick)="replace(result)">{{result}}</button>
     <span class="btn disabled" *ngIf="results.length < 1"><em>Sorry, no synonyms found</em></span>
   </div>
