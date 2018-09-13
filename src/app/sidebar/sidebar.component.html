@@ -1,13 +1,22 @@
+<div class="sidebar-actions border-bottom-dark">
+  <button class="btn btn-secondary ml-1" title="Download Bullets">
+    <span><fa-icon [icon]="['fas', 'download']"></fa-icon></span>
+  </button>
+  <button class="btn btn-secondary" title="Import Downloaded Bullets">
+    <span><fa-icon [icon]="['fas', 'file-import']"></fa-icon></span>
+  </button>
+  <button class="btn btn-secondary" title="Copy Bullets">
+    <span><fa-icon [icon]="['fas', 'copy']"></fa-icon></span>
+  </button>
+  <button class="btn btn-primary float-right mr-1" (click)="bulletService.createCollection()" title="Add Bullet">
+    <span><fa-icon [icon]="['fas', 'plus']"></fa-icon></span>
+  </button>
+</div>
 <div class="nav-wrapper">
   <ul class="nav flex-column">
     <li class="nav-item" *ngFor="let bullet of (bullets | async); index as idx">
       <a class="nav-link active" [ngClass]="{active: bullet.isCurrent}" (click)="bulletService.updateActiveCollection(idx)">
         <span>{{bullet.active}}</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-center" (click)="bulletService.createCollection()">
-        <span><fa-icon [icon]="['fas', 'plus']"></fa-icon></span>
       </a>
     </li>
   </ul>

@@ -2,7 +2,9 @@
 
 // Colors
 $light: #FBFBFB;
-$border-color: #e1e5eb;
+$dark: #5A6169;
+$border-color: #E2E2E2;
+$border-dark: #42484e;
 
 
 // Cards
@@ -83,19 +85,17 @@ $navbar-brand-font-size: 1.5rem;
 $main-navbar-brand-font-size: 1.5rem;
 
 // main sidebar
-//$main-sidebar-background: $light;
+$main-sidebar-background: $dark;
 
-/* main sidebar nav
-$main-sidebar-nav-link-border: black;
-$main-sidebar-nav-link-color: black;
-$main-sidebar-nav-link-icon-color: black;
+// main sidebar nav
+$main-sidebar-nav-link-border: none;
+$main-sidebar-nav-link-color: lighten($dark, 48%);
+$main-sidebar-nav-link-icon-color: lighten($dark, 48%);
 
 // main sidebar nav active
-$main-sidebar-nav-link-active-box-shadow: none;
-$main-sidebar-nav-link-active-background-color: lighten(black, 48%);;
-$main-sidebar-nav-link-active-color: black;
-$main-sidebar-nav-link-active-icon-color: black;
-*/
+$main-sidebar-nav-link-active-background-color: darken($dark, 7%);
+$main-sidebar-nav-link-active-color: white;
+$main-sidebar-nav-link-active-icon-color: white;
 
 // Dropdowns
 $dropdown-padding-y: 10px;

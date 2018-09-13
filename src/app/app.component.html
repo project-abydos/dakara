@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <!-- Main Sidebar -->
-    <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" style="position: fixed">
+    <aside class="main-sidebar px-0" style="position: fixed">
       <div class="main-navbar">
-        <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+        <nav class="navbar align-items-stretch navbar-dark flex-md-nowrap border-bottom-dark p-0">
           <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
             <div class="d-table my-auto">
               <span class="d-none d-md-inline ml-2">Dakara</span>
@@ -17,7 +17,7 @@
       <app-sidebar></app-sidebar>
     </aside>
     <!-- End Main Sidebar -->
-    <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+    <main class="main-content p-0">
       <div class="main-navbar sticky-top bg-white">
         <!-- Main Navbar -->
         <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
@@ -33,7 +33,7 @@
           </form>
           <ul class="navbar-nav border-left flex-row">
             <li class="nav-item">
-              <a class="nav-link nav-link-icon p-2" href="https://github.com/project-abydos">
+              <a class="nav-link nav-link-icon p-2" href="https://project-abydos.github.io">
                 <svg class="svg-inline--fa fa-w-16" viewBox="722 422 562 599" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink" role="img" version="1.1">
                   <path id="path" fill="currentColor" d="M722 1021 L990.439 611.176 C943.91 605.029 908 565.209 908 517 908 464.533 950.533 422 1003 422 1055.467 422 1098 464.533 1098 517 1098 565.209 1062.09 605.029 1015.561 611.176 L1284 1021 1070 1021 1118 914.891 1003 740.324 888 914.891 936 1021 722 1021 Z M1002.5 561 C1026.524 561 1046 541.524 1046 517.5 1046 493.476 1026.524 474 1002.5 474 978.476 474 959 493.476 959 517.5 959 541.524 978.476 561 1002.5 561 Z"
@@ -57,10 +57,7 @@
         <div class="row">
           <!-- Users Stats -->
           <div class="col-lg-9 col-md-12 col-sm-12 mb-3">
-            <div class="card card-small">
-              <div class="card-header border-bottom bg-secondary">
-                <h6 class="m-0 text-white">Bullet History</h6>
-              </div>
+            <div class="card card-small h-100">
               <div class="card-body pt-0">
                 <div class="row">
                   <app-text-list></app-text-list>
@@ -76,10 +73,10 @@
           <!-- End Users By Device Stats -->
           <div class="col-lg-12 col-md-12 col-sm-12 mb-3">
             <div class="card card-small h-100">
-              <div class="card-header border-bottom bg-secondary">
+              <div class="card-header border-bottom">
                 <div class="row">
                   <div class="col-lg-6 m-0">
-                    <h6 class="edit-header text-white">Draft Bullet</h6>
+                    <h6 class="edit-header">Draft Bullet</h6>
                   </div>
                   <div class="col-lg-6 m-0 d-flex justify-content-end">
                     <app-action-bar></app-action-bar>

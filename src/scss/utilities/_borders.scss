@@ -5,6 +5,12 @@
 .border-bottom  { border-bottom: 1px solid $border-color !important; }
 .border-left    { border-left: 1px solid $border-color !important; }
 
+.border-dark         { border: 1px solid $border-dark !important; }
+.border-top-dark     { border-top: 1px solid $border-dark !important; }
+.border-right-dark   { border-right: 1px solid $border-dark !important; }
+.border-bottom-dark  { border-bottom: 1px solid $border-dark !important; }
+.border-left-dark    { border-left: 1px solid $border-dark !important; }
+
 // Border radius
 
 .rounded {
