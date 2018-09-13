@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Dakara';
-  github_url = 'https://github.com/project-abydos/dakara';
-  project_abydos_url = 'https://project-abydos.github.io';
+  title: string = 'Dakara';
+  github_url: string = 'https://github.com/project-abydos/dakara';
+  project_abydos_url: string = 'https://project-abydos.github.io';
 }

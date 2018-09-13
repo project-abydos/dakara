@@ -1,11 +1,13 @@
 <div class="row">
   <div class="col-lg-6 m-0">
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-white active m-0">
-        <input type="radio" name="prType" id="oprButton" checked> EPR
+      <label class="btn btn-white m-0" [ngClass]="{ active: settings.prType == 'EPR' }">
+        <input type="radio" name="prType" id="oprButton" value="EPR" [(ngModel)]="settings.prType" 
+          #ctrl="ngModel" (change)="settingsService.updateSettingsCollection(settings)"> EPR
       </label>
-      <label class="btn btn-white m-0">
-        <input type="radio" name="prType" id="eprButton"> OPR
+      <label class="btn btn-white m-0" [ngClass]="{ active: settings.prType == 'OPR' }">
+        <input type="radio" name="prType" id="eprButton" value="OPR" [(ngModel)]="settings.prType"
+          #ctrl="ngModel" (change)="settingsService.updateSettingsCollection(settings)"> OPR
       </label>
     </div>
   </div>

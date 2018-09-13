@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BulletsService } from '../bullets.service';
+import { SettingsService, ISettingsCollection } from '../settings.service';
 
 @Component({
   selector: 'app-action-bar',
@@ -8,8 +9,11 @@ import { BulletsService } from '../bullets.service';
 })
 export class ActionBarComponent implements OnInit {
 
+  settings: ISettingsCollection;
+
   ngOnInit() { }
 
-  constructor(public bulletService: BulletsService) { }
-
+  constructor(public bulletService: BulletsService, public settingsService: SettingsService) {
+    this.settings = settingsService.getSettingsCollection();
+  }
 }

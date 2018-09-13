@@ -16,11 +16,11 @@ export class TextLookupComponent implements OnInit, OnChanges {
   @Input() text = '';
   @Output() replacement = new EventEmitter<string>();
 
-  santizedText = '';
+  santizedText: string = '';
   results: string[] = [];
-  loading = false;
+  loading: boolean = false;
 
-  _inDblClick = false;
+  _inDblClick: boolean = false;
 
   constructor(private httpClient: HttpClient) {
   }
