@@ -72,6 +72,32 @@ export class BulletsService {
     return active || bullets.slice(-1)[0] || '';
   }
 
+  getActiveBulletsFromCollections(): Array<string> {
+    let currentBullets = [];
+    for (let i = 0; i < this._collections.length; i++) {
+      let collection = this._collections[i];
+      currentBullets.push(collection.active);
+    }
+    return currentBullets;
+  }
+
+  copyActiveBulletsFromCollections() {
+    let currentBullets = this.getActiveBulletsFromCollections();
+    var textArea = document.createElement('textarea');
+    textArea.value = currentBullets.join('\n');
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      var successful = document.execCommand('copy');
+    } catch (err) {
+      console.error('Oops, unable to copy bullets', err);
+    }
+
+    document.body.removeChild(textArea);
+  }
+
   updateActiveBulletInCollection(bullet: string = '') {
     this._activeCollection().active = bullet;
     this._store();

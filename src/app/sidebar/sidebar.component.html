@@ -5,7 +5,7 @@
   <button class="btn btn-secondary" title="Import Downloaded Bullets">
     <span><fa-icon [icon]="['fas', 'file-import']"></fa-icon></span>
   </button>
-  <button class="btn btn-secondary" title="Copy Bullets">
+  <button class="btn btn-secondary" (click)="bulletService.copyActiveBulletsFromCollections()" title="Copy Bullets">
     <span><fa-icon [icon]="['fas', 'copy']"></fa-icon></span>
   </button>
   <button class="btn btn-primary float-right mr-1" (click)="bulletService.createCollection()" title="Add Bullet">
