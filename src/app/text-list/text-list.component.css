@@ -8,6 +8,9 @@
 .bullet-entry {
   font-family: 'Times New Roman', Times, serif;
   line-height: 3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .bullet-entry span {
