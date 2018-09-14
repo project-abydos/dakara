@@ -1,8 +1,8 @@
 <div class="sidebar-actions border-bottom-dark">
-  <button class="btn btn-secondary ml-1" title="Download Bullets">
+  <button class="btn btn-secondary ml-1 disabled" title="Download Bullets" disabled>
     <span><fa-icon [icon]="['fas', 'download']"></fa-icon></span>
   </button>
-  <button class="btn btn-secondary" title="Import Downloaded Bullets">
+  <button class="btn btn-secondary disabled" title="Import Bullets" disabled>
     <span><fa-icon [icon]="['fas', 'file-import']"></fa-icon></span>
   </button>
   <button class="btn btn-secondary" (click)="bulletService.copyActiveBulletsFromCollections()" title="Copy Bullets">
