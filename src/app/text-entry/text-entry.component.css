@@ -29,8 +29,6 @@
 }
 
 .boundry-right {
-    left: 49.5rem;
-    width: calc(100% - 50.5rem);
     border-left: 1px solid #bbb;
     z-index: 99;
     pointer-events: none;
@@ -38,4 +36,14 @@
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
     margin: 1px;
+}
+
+.epr {
+    left: 49.5rem;
+    width: calc(100% - 50rem);
+}
+
+.opr {
+    left: 49.2rem;
+    width: calc(100% - 50.3rem);
 }

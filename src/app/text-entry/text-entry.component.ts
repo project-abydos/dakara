@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BulletsService } from '../bullets.service';
 import { DodAcronymsService, IDoDAcronym } from '../dod-acronyms.service';
+import { SettingsService, ISettingsCollection } from '../settings.service';
 
 interface IKeyboardEvent extends KeyboardEvent {
   target: HTMLInputElement;
@@ -19,7 +20,10 @@ export class TextEntryComponent implements OnInit {
   private selectionStart: number;
   private selectionEnd: number;
 
-  constructor(private bulletService: BulletsService, private dodAcryonymService: DodAcronymsService) {
+  settings: ISettingsCollection;
+
+  constructor(private bulletService: BulletsService, private dodAcryonymService: DodAcronymsService, private settingsService: SettingsService) {
+    this.settings = settingsService.getSettingsCollection();
     this.activeBullet = bulletService.getActiveBulletFromCollection();
     bulletService.watchBulletCollection().subscribe(collection => this.activeBullet = collection.active);
   }

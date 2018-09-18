@@ -1,6 +1,6 @@
 <div class="active-bullet-editor-container bg-light">
   <div class="boundry boundry-left"></div>
-  <div class="boundry boundry-right"></div>
+  <div class="boundry boundry-right" [ngClass]="{ opr: settings.prType == 'OPR', epr: settings.prType == 'EPR' }"></div>
   <input type="text" class="form-control active-bullet-editor" (keydown)="doAcronymLookup($event)" (mouseup)="doSynonymLookup($event)"
     (keyup.enter)="doSaveBullet()" [(ngModel)]="activeBullet" autofocus />
   <br>
